@@ -6,7 +6,7 @@
 /*   By: agiraude <agiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 18:10:28 by agiraude          #+#    #+#             */
-/*   Updated: 2021/02/13 18:33:23 by agiraude         ###   ########.fr       */
+/*   Updated: 2021/02/15 13:45:28 by agiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		cat(int	argc, char **argv)
 	if (argc == 1)
 		read_stdin();
 	if (argc >= 2)
-		while (1 < argc)
+		while (i < argc)
 		{
 			if (argv[i][0] == '-' && !argv[i][1])
 				read_stdin();

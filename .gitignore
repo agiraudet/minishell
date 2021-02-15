@@ -1,0 +1,6 @@
+*.o
+srcs/*.o
+srcs/*/*.o
+file
+minishell
+*/*.a
