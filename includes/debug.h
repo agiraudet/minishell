@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   debug.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agiraude <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agiraude <agiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/18 16:32:11 by agiraude          #+#    #+#             */
-/*   Updated: 2021/02/06 16:56:20 by agiraude         ###   ########.fr       */
+/*   Created: 2021/02/15 18:42:25 by agiraude          #+#    #+#             */
+/*   Updated: 2021/02/15 18:42:47 by agiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int		i;
+#ifndef DEBUG_H
+# define DEBUG_H
 
-	i = 0;
-	if (!s1 || !s2)
-		return (0);
-	while (s1[i] && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
+int	print_cmd(char ***cmds);
+
+#endif

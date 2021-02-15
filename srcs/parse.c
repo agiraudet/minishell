@@ -6,12 +6,13 @@
 /*   By: agiraude <agiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:24:40 by agiraude          #+#    #+#             */
-/*   Updated: 2021/02/15 14:54:00 by agiraude         ###   ########.fr       */
+/*   Updated: 2021/02/15 18:41:50 by agiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
+#include "env.h"
 #define BUF_SIZE 256
 
 void	display_prompt(void)
@@ -45,22 +46,28 @@ char	*get_input(void)
 	return (line);
 }
 
-char	read_cmd(void)
+char	***read_cmd(void)
 {
-	char	*cmd_line;
-	char	**cmds;
-	int		nb_cmd;
+	char	*line;
+	char	**cmd_line;
+	char	***cmds;
+	int		i;
 
-	cmd_line = get_input();
-	cmds = ft_nsplit(cmd_line, "; ");
+	line = get_input();
+	cmd_line = ft_split(line, ';');
 
-	int	i = 0;
-	while (cmds[i])
-		ft_putendl(cmds[i++]);
-	return ('c');
-}
-
-int	main()
-{
-	read_cmd();
+	i = 0;
+	while (cmd_line[i])
+		i++;
+	if (!(cmds = malloc(sizeof(char**) * (i + 1))))
+		return (0);
+	i = 0;
+	while (cmd_line[i])
+	{
+		cmds[i] = ft_split(cmd_line[i], ' ');
+		free(cmd_line[i]);
+		i++;
+	}
+	cmds[i] = 0;
+	return (cmds);
 }

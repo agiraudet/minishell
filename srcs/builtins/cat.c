@@ -6,7 +6,7 @@
 /*   By: agiraude <agiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 18:10:28 by agiraude          #+#    #+#             */
-/*   Updated: 2021/02/15 13:45:28 by agiraude         ###   ########.fr       */
+/*   Updated: 2021/02/15 17:30:38 by agiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,10 @@ int		file_allowed(char *file)
 int		cat(int	argc, char **argv)
 {
 	int		i;
+	int		ret;
 
 	i = 1;
+	ret = 0;
 	if (argc == 1)
 		read_stdin();
 	if (argc >= 2)
@@ -86,10 +88,13 @@ int		cat(int	argc, char **argv)
 			if (argv[i][0] == '-' && !argv[i][1])
 				read_stdin();
 			else if (!file_allowed(argv[1]))
+			{
 				print_error(argv[0], argv[i]);
+				ret = 1;
+			}
 			else
 				read_file(argv[i]);
 			i++;
 		}
-	return (0);
+	return (ret);
 }

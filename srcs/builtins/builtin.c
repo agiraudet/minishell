@@ -6,7 +6,7 @@
 /*   By: agiraude <agiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 18:37:50 by agiraude          #+#    #+#             */
-/*   Updated: 2021/02/15 02:29:58 by agiraude         ###   ########.fr       */
+/*   Updated: 2021/02/15 18:48:03 by agiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ void	exec_builtin(int id, char **cmd)
 	while (cmd[argc])
 		argc++;
 	if (id == 0)
-		cat(argc, cmd);
+		env_set_ret(cat(argc, cmd));
 	if (id == 1)
-		env_print();
+		env_set_ret(env_print());
 	if (id == 2)
-		env_export(cmd);
+		env_set_ret(env_export(cmd));
 	if (id == 3)
-		env_unset(argc, cmd);
+		env_set_ret(env_unset(argc, cmd));
 	if (id == 4)
-		pwd();
+		env_set_ret(pwd());
 	if (id == 5)
-		shell_exit(cmd);
+		env_set_ret(shell_exit(cmd));
 }

@@ -6,7 +6,7 @@
 #    By: agiraude <agiraude@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 15:43:27 by agiraude          #+#    #+#              #
-#    Updated: 2021/02/15 03:47:48 by agiraude         ###   ########.fr        #
+#    Updated: 2021/02/15 18:43:31 by agiraude         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME			=	minishell
@@ -22,6 +22,8 @@ LIBFT			=	$(addprefix $(LIBFT_DIR), $(LIBFT_FILE))
 DEP				=	-L $(LIBFT_DIR) -lft
 
 SRCS_FILE		=	main.c \
+					parse.c \
+					debug.c \
 					builtins/cat.c \
 					builtins/builtin.c \
 					builtins/pwd.c \

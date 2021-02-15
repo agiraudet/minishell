@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd.c                                              :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agiraude <agiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/06 16:25:08 by agiraude          #+#    #+#             */
-/*   Updated: 2021/02/12 19:20:01 by agiraude         ###   ########.fr       */
+/*   Created: 2021/02/15 18:41:55 by agiraude          #+#    #+#             */
+/*   Updated: 2021/02/15 18:42:10 by agiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-char	*cmd_line_read(void)
+int	print_cmd(char ***cmds)
 {
-	char	*buf;
+	int		i;
+	int		ii;
 
-	buf = malloc(256);
-
-	read(1, buf, 256);
-	return (buf);
-}
-
-t_cmd	cmd_line_parse(char *line)
-{
-	t_cmd	cmd;
-
-	cmd.argv = ft_split(line, ' ');
-	cmd.is_builtin = 1;
-	return (cmd);
-}
-
-void	cmd_exec(t_cmd *cmd)
-{
-	return ;
+	i = 0;
+	while (cmds[i])
+	{
+		ii = 0;
+		ft_putstr("[");
+		while (cmds[i][ii])
+		{
+			ft_putstr("\"");
+			ft_putstr(cmds[i][ii]);
+			ft_putstr("\"");
+			if (cmds[i][ii + 1])
+				ft_putstr(", ");
+			ii++;
+		}
+		ft_putstr("]\n");
+		i++;
+	}
+	return (0);
 }
