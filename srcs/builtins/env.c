@@ -6,7 +6,7 @@
 /*   By: agiraude <agiraude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 18:57:05 by agiraude          #+#    #+#             */
-/*   Updated: 2021/02/15 18:22:57 by agiraude         ###   ########.fr       */
+/*   Updated: 2021/02/24 10:36:08 by agiraude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,7 @@ int		env_unset(int argc, char **cmd)
 /*
 ** The env_export fuction add to the linked list pointed by g_env an element
 ** in which the fields are sets accordingly to the string passed in cmd[1].
-** The string must be formated as $NAME=$DATA.
+** The string must be formated as $NAME=DATA.
 */
 
 int		env_export(char **cmd)
